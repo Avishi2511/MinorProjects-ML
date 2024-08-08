@@ -17,5 +17,7 @@ This is a simple web application that allows users to convert media files (video
   - MoviePy (for video to audio conversion)
   - Pydub & SpeechRecognition (for audio to text conversion)
 
-*Below is the interface for the same*
+
+**Below is the interface for the same**
+
 ![Screenshot (244)](https://github.com/user-attachments/assets/44b02661-4e40-4a3e-b9e8-3d97dc68d10c)

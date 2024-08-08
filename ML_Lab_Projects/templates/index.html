@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Conversion Interface</title>
+    <style>
+        body {
+            font-family: Garamond,sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-size: larger;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        section {
+            margin-bottom: 80px;
+        }
+        
+        h2 {
+            color: white;
+            text-align: center;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: row;
+            padding-left: 100px;
+            padding-right: 100px;
+            align-items: center;
+        }
+        
+        input[type="file"] {
+            margin-bottom: 10px;
+            color: white;
+            font-size: medium;
+        }
+        
+        button {
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 50%;
+        }
+        
+        button:hover {
+            background-color: darkred;
+        }
+        
+        .messages {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .messages li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        
+        .messages .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .messages .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="messages">
+            <li class="{{ category }}">{{ message }}</li>
+        </ul>
+
+        <!-- Video to Audio Conversion -->
+        <section>
+            <h2>Video to Audio</h2>
+            <form action="{{ url_for('video_to_audio') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="video/*" required>
+                <button type="submit">Convert</button>
+            </form>
+        </section>
+
+        <!-- Audio to Text Conversion -->
+        <section>
+            <h2>Audio to Text</h2>
+            <form action="{{ url_for('audio_to_text') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="audio/*" required>
+                <button type="submit">Convert</button>
+            </form>
+        </section>
+
+        <!-- Video to Text Conversion -->
+        <section>
+            <h2>Video to Text</h2>
+            <form action="{{ url_for('video_to_text') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="video/*" required>
+                <button type="submit">Convert</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
